@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="212dp"-->
+    <!--android:src="@drawable/frd_bg" />-->
+
+    <ImageView
+        android:id="@+id/sns_user_bg_iv"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:src="@drawable/moments_bg" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.example.miic.oa.common.roundImage.RoundImageView
+            android:id="@+id/sns_user_icon_iv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/boy"
+            app:type="circle"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/sns_user_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="用户名"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</RelativeLayout>

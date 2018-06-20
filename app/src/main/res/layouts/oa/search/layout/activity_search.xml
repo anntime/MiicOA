@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.miic.oa.search.activity.SearchActivity"
+    android:background="@color/activitycolor">
+
+    <!--顶部-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/search_back"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/back"
+                    android:layout_gravity="center"
+                    android:text="返回"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/news_detail_title"
+                android:text="@string/search"
+                android:textStyle="normal"
+                android:paddingRight="50dp"/>
+        </LinearLayout>
+
+        <View android:layout_height="1dp"
+            android:background="@color/main_line"
+            android:layout_width="fill_parent">
+        </View>
+    </LinearLayout>
+    <!--搜索区-->
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <EditText
+            android:id="@+id/search_keywork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:hint="请输入查询关键字"
+            android:textColorHint="@color/news_detail_time"
+            android:textSize="12sp"
+            android:drawableLeft="@drawable/find"
+            android:background="@drawable/bg_border"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+    </LinearLayout>
+    <!--结果展示区-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.example.miic.base.loadmore.LoadMoreListView
+                android:id="@+id/news_comments_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#00000000" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_2581ff">#ff5252</color>
+    <color name="color_333333">#333333</color>
+    <color name="colorPrimary">#ff5252</color>
+    <color name="colorPrimaryDark">#ff5252</color>
+    <color name="colorAccent">#ff5252</color>
+    <color name="activitycolor">#ffffff</color>
+    <!--find password page-->
+
+    <color name="notselected">#FFA8A8</color>
+    <color name="selected">#ff5252</color>
+    <color name="textcolor">#000000</color>
+
+    <color name="linecolor">#bbb</color>
+    <color name="hintcolor">#bbb</color>
+
+    <!--新闻详情页-->
+    <color name="news_detail_title">#222</color>
+    <color name="news_detail_time">#bbb</color>
+    <color name="main_line">#eee</color>
+    <color name="news_detail_content">#666</color>
+    <!--我的主页-->
+    <color name="my_background">#FFF7C0</color>
+
+
+    <!--IM-->
+    <color name="more_bg_nor">#ffffff</color>
+    <color name="more_bg_p">#f5f5f5</color>
+
+    <!--用印管理-->
+    <color name="seal_approve">#f34e56</color>
+    <color name="seal_finish">#14d500</color>
+    <color name="seal_edit">#4086cd</color>
+
+    <!--朋友圈评论的背景-->
+    <color name="share_background">#DCDCDC</color>
+
+    <!--用印审批状态-->
+    <color name="seal_status_all">#BA57ED</color>
+    <color name="seal_status_init">#62B264</color>
+    <color name="seal_status_execute">#FFCC33</color>
+    <color name="seal_status_finish">#FF33CC</color>
+    <color name="seal_status_illegal_finish">#63b8ff</color>
+    <color name="seal_status_illegal_disagree_finish">#FFCC33</color>
+    <color name="seal_status_seal_print">#FF33CC</color>
+    <color name="seal_status_seal_finish">#63b8ff</color>
+
+</resources>

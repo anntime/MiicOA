@@ -1,0 +1,26 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--loginLayout setting-->
+    <dimen name="progressbar_margintop">400dp</dimen>
+    <dimen name="progressbar_marginleft">250dp</dimen>
+    <dimen name="progressbar_marginbottom">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--上滑加载-->
+
+<!--IM-->
+    <dimen name="hint_text_view_height">40dip</dimen>
+    <dimen name="title_bar_height">45dip</dimen>
+    <dimen name="common_safe_margin">12dip</dimen>
+
+
+    <!--可滚动导航-->
+    <dimen name="common_navigator_height">35dp</dimen>
+    <dimen name="navigator_margin_top">5dp</dimen>
+
+    <dimen name="guide_first_cover_image_width">171dp</dimen>
+    <dimen name="actionBarSize">32dip</dimen>
+</resources>

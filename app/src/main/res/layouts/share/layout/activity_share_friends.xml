@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.miic.share.activity.ShareFriendsActivity">
+    <include layout="@layout/page_title_bar" />
+    <!--好友添加提示-->
+    <TextView
+        android:id="@+id/friend_apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="有新的好友申请"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+    <!--搜索框-->
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <EditText
+            android:id="@+id/search_keyword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:hint="请输入查询关键字"
+            android:textColorHint="@color/news_detail_time"
+            android:textSize="12sp"
+            android:drawableLeft="@drawable/find"
+            android:background="@drawable/bg_border"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--好友列表-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/share_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.example.miic.base.waveSideBar.WaveSideBar
+            android:id="@+id/side_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            app:sidebar_text_color="#8D6E63"/>
+    </RelativeLayout>
+
+</LinearLayout>

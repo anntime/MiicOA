@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\MIIC-MyWork\application\MIIC_OA_APP\OA\BaiChuan\src\main\assets"/><source path="D:\MIIC-MyWork\application\MIIC_OA_APP\OA\BaiChuan\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\MIIC-MyWork\application\MIIC_OA_APP\OA\BaiChuan\src\debug\assets"/></dataSet></merger>

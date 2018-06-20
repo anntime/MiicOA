@@ -1,0 +1,136 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.miic.oa2"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 2
+        versionName "1.0.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        consumerProguardFiles 'proguard.cfg'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86"
+            }
+        }
+        debug {
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86"
+            }
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/oa/address',
+                            'src/main/res/layouts/oa/bindphone',
+                            'src/main/res/layouts/oa/chatpage',
+                            'src/main/res/layouts/oa/common',
+                            'src/main/res/layouts/oa/contacts',
+                            'src/main/res/layouts/oa/findpassword',
+                            'src/main/res/layouts/oa/guidance',
+                            'src/main/res/layouts/oa/im',
+                            'src/main/res/layouts/oa/infopage',
+                            'src/main/res/layouts/oa/login',
+                            'src/main/res/layouts/oa/mainpage',
+                            'src/main/res/layouts/oa/mypage',
+                            'src/main/res/layouts/oa/search',
+                            'src/main/res/layouts/oa/splash',
+                            'src/main/res/layouts/oa/workpage',
+                            'src/main/res/layouts/oa',
+                            'src/main/res/layouts/seal_management',
+                            'src/main/res/layouts/qj_manage',
+                            'src/main/res/layouts/share',
+                            'src/main/res/layouts/carManage',
+                            'src/main/res/layouts/contractManage',
+                            'src/main/res/layouts/meetingManage',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
+    packagingOptions {
+        exclude 'com/openim/hotpatch/patch/aliwx_so_armeabi_imdexposed'
+    }
+}
+def localSourceEnabled = false
+
+dependencies {
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/pinyin4j-2.5.0.jar')
+    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:27.0.2'
+    implementation 'com.android.support:support-v4:27.0.2'
+    implementation 'com.android.support:recyclerview-v7:27.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    // Retrofit库
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    // Okhttp库
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    //解析成字符串
+    implementation 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    //指纹相关
+    implementation 'com.wei.android.lib:fingerprintidentify:1.1.2'
+    //图片轮播
+    compile 'net.cpacm.simpleslider:library:1.0.4'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.android.support:cardview-v7:27.0.2'
+    //滚动导航
+    implementation 'com.android.support:support-v13:+'
+    //EventBus是一款针对Android优化的发布/订阅（publish/subscribe）事件总线。主要功能是替代Intent,Handler,BroadCast在Fragment，Activity，Service，线程之间传递消息。简化了应用程序内各组件间、组件与后台线程间的通信。优点是开销小，代码更优雅，以及将发送者和接收者解耦。比如请求网络，等网络返回时通过Handler或Broadcast通知UI，两个Fragment之间需要通过Listener通信，这些需求都可以通过EventBus实现。
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    //缓存图片
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //微信
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.0.2'
+    //阿里百川
+    implementation project(':BaiChuan')
+    //gif
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.11'
+    implementation 'com.pnikosis:materialish-progress:1.7'
+
+    //banner
+    implementation 'cn.bingoogolapple:bga-banner:2.2.4@aar'
+    implementation 'com.github.bumptech.glide:glide:4.1.1'//原来是4.5.0，为了朋友圈图片选择改成了4.1.1
+
+    //推送
+    compile 'com.aliyun.ams:alicloud-android-push:3.1.2'
+    //ButterKnife大大简化了程序员编写代码的速度,.并且在7.0版本以后引入了注解处理器,取代了之前利用反射原理进行findViewById影响APP性能的方式,不再影响APP运行效率,
+    implementation "com.jakewharton:butterknife:8.5.1"
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.5.1"
+
+    //时间选择器
+    compile 'com.contrarywind:Android-PickerView:4.1.2'
+    //html显示
+    compile 'org.sufficientlysecure:html-textview:3.5'
+    //九宫格图片展示
+    compile 'com.lzy.widget:ninegridview:0.2.0'
+    //仿微信图片选择
+    compile 'me.iwf.photopicker:PhotoPicker:0.9.12@aar'
+
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '27.0.0'
+            }
+        }
+    }
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/activitycolor"
+    tools:context="com.example.miic.oa.news.activity.NewsCommentsActivity">
+    <!--评论列表-->
+    <LinearLayout
+        android:id="@+id/news_comment_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--顶部-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/news_comment_back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <ImageView
+                       android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="bottom"
+                        android:layout_gravity="center"
+                        android:src="@drawable/back"/>
+                </LinearLayout>
+
+
+                <TextView
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/news_comment_list"
+                    android:textColor="@color/news_detail_title"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    android:paddingRight="50dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="9dp"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/main_line"></View>
+        </LinearLayout>
+        <!--评论列表-->
+        <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:visibility="visible">
+
+        <com.example.miic.base.loadmore.LoadMoreListView
+            android:id="@+id/news_comments_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#00000000" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+        <TextView
+            android:id="@+id/news_comment_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="没有更多的评论了..."
+            android:textColor="@color/linecolor"
+            android:textSize="14sp"
+            android:background="@color/activitycolor"
+            android:visibility="visible"/>
+    </LinearLayout>
+</LinearLayout>

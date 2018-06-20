@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.miic"
+    tools:node="replace">
+
+    <uses-sdk android:minSdkVersion="14" />
+
+    <!-- 访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 指纹权限 -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- if you want to load images from a file OR from the internet网络下载图片 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- 下载文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 阿里云推送相关权限 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:name=".common.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+
+        <!-- 注册FileProvider -->
+        <!-- FileProvider配置访问路径，适配7.0及其以上 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"> <!-- android:exported必须为false -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+            //需要自己编写xml文件
+        </provider>
+
+        <!-- 连接心跳保持监听器 -->
+        <receiver android:name="anet.channel.heartbeat.HeartbeatManager$Receiver">
+            <intent-filter>
+                <action android:name="anetwork.channel.intent.action.COMMAND" />
+            </intent-filter>
+        </receiver>
+        <!-- 推送引入开始 -->
+        <!-- 消息接收监听器 -->
+        <receiver android:name="com.alibaba.sdk.android.push.MessageReceiver">
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.COMMAND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.taobao.intent.action.COMMAND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 通道保持服务 -->
+        <service
+            android:name="com.alibaba.sdk.android.push.ChannelService"
+            android:exported="true"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.SERVICE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING_V4" />
+
+                <category android:name="taobao" />
+            </intent-filter>
+        </service>
+
+        <!-- 消息接收服务 -->
+        <service
+            android:name="com.alibaba.sdk.android.push.MsgService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.NOTIFY_ACTION" />
+            </intent-filter>
+        </service>
+        <!-- 推送引入结束 -->
+
+        <activity
+            android:name=".oa.login.activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/splash_style">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="jp.app"
+                    android:pathPrefix="/openwith"
+                    android:scheme="myapp" />
+            </intent-filter>
+            <!-- <a href="[scheme]://[host]/[path]?[query]">启动应用程序</a> -->
+            <!--
+                scheme：判别启动的App。 ※详细后述
+                host：适当记述
+                path：传值时必须的key     ※没有也可以
+                query：获取值的Key和Value  ※没有也可以
+            -->
+        </activity>
+        <activity
+            android:name=".oa.basic.activity.AddressListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.basic.activity.GuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.login.activity.FindPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.news.activity.NewsDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".oa.login.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.search.activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <!-- android:launchMode="singleInstance" -->
+        <activity
+            android:name=".oa.news.activity.NewsCommentsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".oa.work.activity.WorkChildActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.user.activity.ModifyUserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.user.activity.VersionInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".base.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.basic.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.basic.activity.ContactsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".oa.user.activity.BindPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".qjManage.activity.QjManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".qjManage.activity.QjApplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".qjManage.activity.QjManageDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sealManagement.activity.SealManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sealManagement.activity.SealApplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sealManagement.activity.SealManageDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".share.activity.ShareActivity" />
+        <activity android:name=".share.activity.MomentsEditActivity" />
+        <activity android:name=".share.activity.MomentsCommentActivity" />
+        <activity android:name=".share.activity.MomentsDetailActivity" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".share.activity.ShareFriendsActivity" />
+        <activity
+            android:name=".carManage.activity.CarApplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".carManage.activity.CarManageDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".carManage.activity.CarManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractApplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractManageDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractManageActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".share.activity.FriendsApplyActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".share.activity.AddFriendsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".meetingManage.activity.MeetingApplyActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".meetingManage.activity.MeetingManageActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".meetingManage.activity.MeetingManageDetailActivity"
+            android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>

@@ -56,7 +56,7 @@ public class WorkPageFragment extends Fragment {
         columnGridViewList1.add(new WorkPageGridView(R.drawable.pinboard,"用印管理","sealManage"));
         columnGridViewList1.add(new WorkPageGridView(R.drawable.blogger,"合同管理","contractManage"));
         columnGridViewList1.add(new WorkPageGridView(R.drawable.car,"车辆管理","carManage"));
-        columnGridViewList1.add(new WorkPageGridView(R.drawable.readability,"会议管理","meetingManage"));
+        columnGridViewList1.add(new WorkPageGridView(R.drawable.readability,"会议室管理","meetingRoomManage"));
          columnItemList.add(new WorkPageItem("日常管理",columnGridViewList1,"001"));
         List<WorkPageGridView> columnGridViewList2 = new ArrayList<WorkPageGridView>();
         columnGridViewList2.add(new WorkPageGridView(R.drawable.location,"请假管理","qjManage"));

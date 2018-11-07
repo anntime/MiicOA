@@ -7,14 +7,14 @@ package com.example.miic.sealManagement.item;
 public class TimeLineItem {
     private String approveName;
     private String approveTime;
-    private ApproveStatus approveState;
-    private String remark;
+    private SealApproveStatus approveState;
+    //private String remark;
 
-    public TimeLineItem(String approveName, String approveTime, ApproveStatus approveState,String remark) {
+    public TimeLineItem(String approveName, String approveTime, SealApproveStatus approveState) {
         this.approveName = approveName;
         this.approveTime = approveTime;
         this.approveState = approveState;
-        this.remark = remark;
+        //this.remark = remark;
     }
 
     public String getApproveName() {
@@ -33,15 +33,15 @@ public class TimeLineItem {
         this.approveTime = approveTime;
     }
 
-    public ApproveStatus getApproveState() {
+    public SealApproveStatus getApproveState() {
         return approveState;
     }
 
-    public void setApproveState(ApproveStatus approveState) {
+    public void setApproveState(SealApproveStatus approveState) {
         this.approveState = approveState;
     }
-    public String getRemark(){return remark;}
-    public void setRemark(String remark){
-        this.remark = remark;
-    }
+    //public String getRemark(){return remark;}
+    //public void setRemark(String remark){
+    //    this.remark = remark;
+    //}
 }

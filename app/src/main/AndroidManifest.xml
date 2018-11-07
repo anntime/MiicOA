@@ -230,6 +230,18 @@
         <activity
             android:name=".sealManagement.activity.SealManageDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".sealManagement.activity.SealApprovalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sealManagement.activity.SealApprovalDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sealManagement.activity.SealPrintActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".sealManagement.activity.SealIndexActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".share.activity.ShareActivity" />
         <activity android:name=".share.activity.MomentsEditActivity" />
         <activity android:name=".share.activity.MomentsCommentActivity" />
@@ -242,6 +254,9 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".share.activity.ShareFriendsActivity" />
         <activity
+            android:name=".carManage.activity.CarIndexActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".carManage.activity.CarApplyActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -251,24 +266,60 @@
             android:name=".carManage.activity.CarManageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".contractManage.activity.ContractApplyActivity"
+            android:name=".carManage.activity.CarApprovalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".contractManage.activity.ContractManageDetailActivity"
+            android:name=".carManage.activity.CarApprovalDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractDetailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".contractManage.activity.ContractManageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".contractManage.activity.ContractPrintActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".share.activity.FriendsApplyActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".share.activity.AddFriendsActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".meetingManage.activity.MeetingApplyActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".meetingManage.activity.MeetingManageActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".meetingManage.activity.MeetingManageDetailActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".contractManage.activity.ContractPlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractFinishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractExecuteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractApprovalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".share.activity.FriendsApplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".share.activity.AddFriendsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".meetingManage.activity.MeetingApplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".meetingManage.activity.MeetingManageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".meetingManage.activity.MeetingManageDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".contractManage.activity.ContractListActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".contractManage.activity.ContractApprovalListActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".contractManage.activity.AddExecuteActivity" />
+        <activity android:name=".contractManage.activity.AddPlanActivity" />
+        <activity android:name=".meetingRoomManage.activity.MeetingRoomManageActivity" />
+        <activity android:name=".meetingRoomManage.activity.MeetingRoomApplyActivity" />
+        <activity android:name=".meetingRoomManage.activity.MeetingRoomCalenderActivity" />
+        <activity android:name=".contractManage.activity.ContractIndexActivity"></activity>
     </application>
 
 </manifest>

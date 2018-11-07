@@ -11,9 +11,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.miic.R;
+import com.example.miic.carManage.activity.CarIndexActivity;
+import com.example.miic.carManage.activity.CarManageActivity;
 import com.example.miic.common.MyApplication;
+import com.example.miic.contractManage.activity.ContractIndexActivity;
+import com.example.miic.contractManage.activity.ContractManageActivity;
+//import com.example.miic.meetingRoomManage.activity.MeetingRoomManageActivity;
+import com.example.miic.meetingRoomManage.activity.MeetingRoomManageActivity;
 import com.example.miic.oa.work.item.WorkPageIcon;
 import com.example.miic.qjManage.activity.QjManageActivity;
+import com.example.miic.sealManagement.activity.SealIndexActivity;
 import com.example.miic.sealManagement.activity.SealManageActivity;
 
 import java.util.List;
@@ -62,12 +69,27 @@ public class WorkPageIconAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 String clickID = list.get(position).getIconID();
-                if(clickID.equals("sealManage")){
-                    Intent intent=new Intent(context,SealManageActivity.class);
-                    context.startActivity(intent);
-                    //Toast.makeText(MyApplication.getContext(),"待开发中……",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(MyApplication.getContext(),"待开发中……",Toast.LENGTH_SHORT).show();
+                Intent intent;
+                switch (clickID){
+                    case "sealManage":
+                        intent=new Intent(context,SealIndexActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    case "contractManage":
+                        intent=new Intent(context,ContractIndexActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    case "carManage":
+                        intent=new Intent(context,CarIndexActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    case "meetingRoomManage":
+                        intent=new Intent(context,MeetingRoomManageActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    default:
+                        Toast.makeText(context,"该功能尚未开放~",Toast.LENGTH_LONG).show();
+                        break;
                 }
             }
         });

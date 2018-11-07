@@ -1,5 +1,7 @@
 package com.example.miic.sealManagement.common;
 
+import android.app.Activity;
+
 import com.example.miic.sealManagement.item.ApproveStatus;
 
 /**
@@ -7,12 +9,28 @@ import com.example.miic.sealManagement.item.ApproveStatus;
  */
 
 public class SealCommon {
+    public static Activity SealManageActivity;
     private String sealTypeStr="0";
     private String sealUseType = "0";
+    private String sealStatueStr = "0";
+    private String YesOrNo ="0";
 
+    public String getYesOrNo(String str){
+        switch(str){
+            case "Yes":
+                YesOrNo = "1";
+                break;
+            case "No":
+                YesOrNo = "2";
+                break;
+            default:
+                break;
+        }
+        return YesOrNo;
+    }
     public String getSealType(String str){
         switch(str){
-            case "请选择":
+            case "全部":
                 sealTypeStr ="0";
                 break;
             case "中心公章":
@@ -38,7 +56,7 @@ public class SealCommon {
     public String getSealTypeText(String str){
         switch(str){
             case "0":
-                sealTypeStr ="请选择";
+                sealTypeStr ="全部";
                 break;
             case "1":
                 sealTypeStr = "中心公章";
@@ -60,9 +78,96 @@ public class SealCommon {
         }
         return sealTypeStr;
     }
+    public String getSealStatue(String str){
+        switch(str){
+            case "全部":
+                sealStatueStr ="0";
+                break;
+            case "编辑中":
+                sealStatueStr = "1";
+                break;
+            case "审批中":
+                sealStatueStr = "2";
+                break;
+            case "待监印":
+                sealStatueStr = "10";
+                break;
+            case "已完成":
+                sealStatueStr = "8";
+                break;
+            case "其他":
+                sealStatueStr = "11";
+                break;
+            default:
+                break;
+        }
+        return sealStatueStr;
+    }
+
+    public String getSealStatueA(String str){
+        switch(str){
+            case "全部":
+                sealStatueStr ="0";
+                break;
+            case "待审批":
+                sealStatueStr = "1";
+                break;
+            case "审批中":
+                sealStatueStr = "2";
+                break;
+            case "已完成":
+                sealStatueStr = "3";
+                break;
+            default:
+                break;
+        }
+        return sealStatueStr;
+    }
+
+    public String getSealStatueP(String str){
+        switch(str){
+            case "全部":
+                sealStatueStr ="0";
+                break;
+            case "待监印":
+                sealStatueStr = "3";
+                break;
+            case "已完成":
+                sealStatueStr = "2";
+                break;
+            default:
+                break;
+        }
+        return sealStatueStr;
+    }
+    public String getSealStatueText(String str){
+        switch(str){
+            case "0":
+                sealStatueStr ="全部";
+                break;
+            case "1":
+                sealStatueStr = "编辑中";
+                break;
+            case "2":
+                sealStatueStr = "审批中";
+                break;
+            case "10":
+                sealStatueStr = "待监印";
+                break;
+            case "8":
+                sealStatueStr = "已完成";
+                break;
+            case "11":
+                sealStatueStr = "其他";
+                break;
+            default:
+                break;
+        }
+        return sealStatueStr;
+    }
     public String getSealUseType(String str){
         switch(str){
-            case "请选择":
+            case "全部":
                 sealTypeStr ="0";
                 break;
             case "即时用印":
@@ -79,7 +184,7 @@ public class SealCommon {
     public String getSealUseTypeText(String str){
         switch(str){
             case "0":
-                sealTypeStr ="请选择";
+                sealTypeStr ="全部";
                 break;
             case "1":
                 sealTypeStr = "即时用印";

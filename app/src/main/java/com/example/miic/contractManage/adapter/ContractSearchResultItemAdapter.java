@@ -8,10 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.miic.R;
+import com.example.miic.contractManage.common.ContractCommon;
 import com.example.miic.contractManage.item.ContractSearchResultItem;
 import com.example.miic.contractManage.item.ContractSearchResultItem;
+import com.example.miic.sealManagement.adapter.SealSearchResultItemAdapter;
 
 import java.util.List;
+
+import static com.example.miic.oa.common.Setting.stampToDate;
+import static com.example.miic.oa.common.Setting.strToDate;
 
 /**
  * Created by XuKe on 2018/4/8.
@@ -42,7 +47,7 @@ public class ContractSearchResultItemAdapter extends BaseAdapter {
         return position;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(final int position, View convertView, ViewGroup parent){
         View view;
         ViewHolder holder;
         if(convertView==null){
@@ -54,10 +59,17 @@ public class ContractSearchResultItemAdapter extends BaseAdapter {
             holder= (ViewHolder) view.getTag();
         }
         ContractSearchResultItem contract = getItem(position);
-        holder.contractTitle.setText(contract.getContractApplyTitle());
-        holder.contractTime.setText(contract.getApplyTime());
-        holder.contractState.setText(contract.getApproveState());
+        holder.contractTitle.setText(contract.getContractTitle());
+        holder.contractTime.setText(strToDate(contract.getContractTime()));
+        holder.contractState.setText(new ContractCommon().getContractStatusStr(contract.getContractStatus()));
         //判断状态，设置审批状态字体的颜色！！！！！！！！！！！！！！！！！！！！！！！！！！
+        holder.contractState.setTextColor(new ContractCommon().getContractStatusColorStr(contract.getContractStatus()));
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMyClickListener.onMyClick(0, position);
+            }
+        });
         return view;
     }
     /**
@@ -77,4 +89,16 @@ public class ContractSearchResultItemAdapter extends BaseAdapter {
             contractState = (TextView) view.findViewById(R.id.contract_state);
         }
     }
+    public interface onItemMyClickListener {
+        void onMyClick(int type, int listID);
+    }
+
+    private ContractSearchResultItemAdapter.onItemMyClickListener onMyClickListener;
+
+    public void setOnItemMyClickListener(ContractSearchResultItemAdapter.onItemMyClickListener onMyClickListener) {
+        this.onMyClickListener = onMyClickListener;
+    }
+
+
+
 }

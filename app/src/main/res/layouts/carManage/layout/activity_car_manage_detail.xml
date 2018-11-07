@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:textSize="16sp"
                 android:textColor="@color/news_detail_title"
-                android:text="@string/car_manage_detail"
+                android:text="用车详情"
                 android:textStyle="normal"
                 android:paddingRight="50dp"/>
         </LinearLayout>
@@ -70,7 +70,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="vertical">
-                <!--用印类型-->
+                <!--车牌号-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,20 +84,20 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印类型"
+                        android:text="车牌号"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/car_use_type"
+                        android:id="@+id/car_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="即时用印"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
-                <!--用印部门-->
+                <!--申请人-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -111,20 +111,20 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印部门"
+                        android:text="申请人"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/dept_name"
+                        android:id="@+id/creater_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="软件部"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
-                <!--用印时间-->
+                <!--行车路线-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -142,16 +142,16 @@
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/time"
+                        android:id="@+id/travel_way"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="2018-03-21   15:30:29"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
-                <!--用印事由-->
+                <!--工作时间-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -165,20 +165,20 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印事由"
+                        android:text="工作时间"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/reason"
+                        android:id="@+id/is_worktime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="申请中心微信开放平台证书打算的撒多撒多撒多撒多撒多撒多撒多撒多撒"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
-                <!--发往单位-->
+                <!--起始日期-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -192,20 +192,20 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="发往单位"
+                        android:text="起始日期"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/organization"
+                        android:id="@+id/begin_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="腾讯"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
-                <!--印章类型-->
+                <!--终止日期-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -219,20 +219,20 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="印章类型"
+                        android:text="终止日期"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/car_type"
+                        android:id="@+id/end_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="中心公章"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
-                <!--经办人-->
+                <!--归还日期-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -246,20 +246,21 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="经办人"
+                        android:text="归还日期"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/operator"
+                        android:id="@+id/return_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="王娟"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
+                    car_num
                 </LinearLayout>
-                <!--用印份数-->
+                <!--使用公里数-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -273,20 +274,20 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印份数"
+                        android:text="使用公里"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/car_num"
+                        android:id="@+id/use_km"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="3份"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
-                <!--审核人员-->
+                <!--核查公里-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -300,16 +301,16 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="审核人员"
+                        android:text="核查公里"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <TextView
-                        android:id="@+id/assessor"
+                        android:id="@+id/check_km"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginLeft="10dp"
-                        android:text="软件部"
+                        android:text=""
                         android:textColor="@color/news_detail_title"
                         android:textSize="16sp"/>
                 </LinearLayout>
@@ -351,7 +352,7 @@
                     android:background="@color/colorAccent"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="bottom"
-                    android:text="提交"
+                    android:text="返回"
                     android:textColor="@color/activitycolor"/>
             </LinearLayout>
         </LinearLayout>

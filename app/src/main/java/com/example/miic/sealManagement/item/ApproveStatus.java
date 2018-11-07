@@ -1,5 +1,7 @@
 package com.example.miic.sealManagement.item;
 
+import static java.lang.Integer.parseInt;
+
 /**
  * Created by HP-HP on 07-06-2016.
  */
@@ -47,3 +49,5 @@ public enum ApproveStatus {
         this.index = index;
     }
 }
+
+

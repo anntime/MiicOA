@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.miic.oa2"
-        minSdkVersion 16
+        minSdkVersion 15
         targetSdkVersion 27
         versionCode 2
         versionName "1.0.2"
@@ -30,6 +30,7 @@ android {
         main {
             res.srcDirs =
                     [
+
                             'src/main/res/layouts/oa/address',
                             'src/main/res/layouts/oa/bindphone',
                             'src/main/res/layouts/oa/chatpage',
@@ -52,6 +53,7 @@ android {
                             'src/main/res/layouts/carManage',
                             'src/main/res/layouts/contractManage',
                             'src/main/res/layouts/meetingManage',
+                            'src/main/res/layouts/meetingRoomManage',
                             'src/main/res/layouts',
                             'src/main/res'
                     ]
@@ -121,6 +123,14 @@ dependencies {
     compile 'com.lzy.widget:ninegridview:0.2.0'
     //仿微信图片选择
     compile 'me.iwf.photopicker:PhotoPicker:0.9.12@aar'
+    //支持侧滑的listView
+    compile 'com.github.yilylong:CBPullRefreshListView:1.0.0'
+    //支持侧滑的item
+    compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    compile 'com.github.mcxtzhang:all-base-adapter:V1.5.2'
+    //日历控件
+    compile 'com.haibin:calendarview:3.4.4'
+
 
 }
 

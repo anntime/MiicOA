@@ -65,11 +65,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="vertical">
-                <!--姓名-->
+                <!--车牌号-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -83,7 +82,7 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印类型"
+                        android:text="车牌号"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <View
@@ -103,7 +102,7 @@
                         android:layout_height="0px"
                         android:orientation="vertical"/>
                     <Spinner
-                    android:id="@+id/car_use_type"
+                    android:id="@+id/car_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -114,7 +113,6 @@
                     android:background="@color/main_line"
                     android:layout_width="match_parent">
                 </View>
-                <!--性别-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,7 +124,7 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印部门"
+                        android:text="用车部门"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <View
@@ -147,12 +145,19 @@
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"
                         android:background="@null"/>
+                    <Spinner
+                        android:id="@+id/dept_name_sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="bottom"
+                        android:visibility="gone"/>
                 </LinearLayout>
                 <View android:layout_height="1dip"
                     android:background="@color/main_line"
                     android:layout_width="match_parent">
                 </View>
-                <!--民族-->
+                <!--申请人-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -164,7 +169,122 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印时间"
+                        android:text="申请人"
+                        android:textColor="@color/news_detail_time"
+                        android:textSize="16sp"/>
+                    <View
+                        android:layout_width="1dip"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/main_line"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:id="@+id/createrName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=" "
+                        android:textColor="@color/news_detail_time"
+                        android:textSize="16sp"
+                        android:background="@null"/>
+                </LinearLayout>
+                <View android:layout_height="1dip"
+                    android:background="@color/main_line"
+                    android:layout_width="match_parent">
+                </View>
+                <!--行车路线-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="行车路线"
+                        android:textColor="@color/news_detail_time"
+                        android:textSize="16sp"/>
+                    <View
+                        android:layout_width="1dip"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/main_line"
+                        android:layout_gravity="center"
+                        />
+                    <EditText
+                        android:id="@+id/travelWay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="请填写"
+                        android:textColorHint="@color/news_detail_time"
+                        android:text=""
+                        android:textColor="@color/news_detail_title"
+                        android:textSize="16sp"
+                        android:background="@null"
+                        android:singleLine="true"
+                        android:maxLines="1"/>
+                </LinearLayout>
+                <View android:layout_height="1dip"
+                    android:background="@color/main_line"
+                    android:layout_width="match_parent">
+                </View>
+                <!--是否工作时间-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="工作时间"
+                        android:textColor="@color/news_detail_time"
+                        android:textSize="16sp"/>
+                    <View
+                        android:layout_width="1dip"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/main_line"
+                        android:layout_gravity="center"
+                        />
+                    <Spinner
+                        android:id="@+id/isWorkingTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="bottom"/>
+                </LinearLayout>
+                <View android:layout_height="1dip"
+                    android:background="@color/main_line"
+                    android:layout_width="match_parent">
+                </View>
+                <!--起始时间-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="起始时间"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <View
@@ -181,7 +301,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1">
                         <TextView
-                            android:id="@+id/btn_Time"
+                            android:id="@+id/beginTime"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text=" "
@@ -201,7 +321,7 @@
                     android:background="@color/main_line"
                     android:layout_width="match_parent">
                 </View>
-                <!--所属口-->
+                <!--结束时间-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,7 +333,7 @@
                     <TextView
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="用印事由"
+                        android:text="结束时间"
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"/>
                     <View
@@ -225,182 +345,32 @@
                         android:background="@color/main_line"
                         android:layout_gravity="center"
                         />
-                    <EditText
-                        android:id="@+id/reason"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="请填写"
-                        android:textColorHint="@color/news_detail_time"
-                        android:text=""
-                        android:textColor="@color/news_detail_title"
-                        android:textSize="16sp"
-                        android:background="@null"
-                        android:singleLine="true"
-                        android:maxLines="1"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/endTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=" "
+                            android:textColor="@color/news_detail_title"
+                            android:textSize="16sp"
+                            android:background="@null"/>
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/down"/>
+                    </LinearLayout>
                 </LinearLayout>
                 <View android:layout_height="1dip"
                     android:background="@color/main_line"
                     android:layout_width="match_parent">
                 </View>
-                <!--职称-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp">
-                    <TextView
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:text="发往单位"
-                        android:textColor="@color/news_detail_time"
-                        android:textSize="16sp"/>
-                    <View
-                        android:layout_width="1dip"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_marginRight="15dp"
-                        android:background="@color/main_line"
-                        android:layout_gravity="center"
-                        />
-                    <EditText
-                        android:id="@+id/organization"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="请填写"
-                        android:textColorHint="@color/news_detail_time"
-                        android:text=""
-                        android:textColor="@color/news_detail_title"
-                        android:textSize="16sp"
-                        android:background="@null"
-                        android:singleLine="true"
-                        android:maxLines="1"/>
-                </LinearLayout>
-                <View android:layout_height="1dip"
-                    android:background="@color/main_line"
-                    android:layout_width="match_parent">
-                </View>
-                <!--部门-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp">
-                    <TextView
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:text="印章类型"
-                        android:textColor="@color/news_detail_time"
-                        android:textSize="16sp"/>
-                    <View
-                        android:layout_width="1dip"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_marginRight="15dp"
-                        android:background="@color/main_line"
-                        android:layout_gravity="center"
-                        />
-                    <Spinner
-                    android:id="@+id/car_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_gravity="bottom"/>
-            </LinearLayout>
-            <View android:layout_height="1dip"
-                android:background="@color/main_line"
-                android:layout_width="match_parent">
-            </View>
-            <!--QQ-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp">
-                    <TextView
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:text="经  办  人"
-                        android:textColor="@color/news_detail_time"
-                        android:textSize="16sp"/>
-                    <View
-                        android:layout_width="1dip"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_marginRight="15dp"
-                        android:background="@color/main_line"
-                        android:layout_gravity="center"
-                        />
-                    <TextView
-                        android:id="@+id/operator"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text=" "
-                        android:textColor="@color/news_detail_title"
-                        android:textSize="16sp"
-                        android:background="@null"/>
-                </LinearLayout>
-                <View android:layout_height="1dip"
-                    android:background="@color/main_line"
-                    android:layout_width="match_parent">
-                </View>
-                <!--微信-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp">
-                    <TextView
-                        android:layout_width="80dp"
-                        android:layout_height="wrap_content"
-                        android:text="用印份数"
-                        android:textColor="@color/news_detail_time"
-                        android:textSize="16sp"/>
-                    <View
-                        android:layout_width="1dip"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_marginRight="15dp"
-                        android:background="@color/main_line"
-                        android:layout_gravity="center"
-                        />
-                    <EditText
-                        android:id="@+id/car_num"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="请填写"
-                        android:textColorHint="@color/news_detail_time"
-                        android:text=""
-                        android:textColor="@color/news_detail_title"
-                        android:textSize="16sp"
-                        android:background="@null"
-                        android:singleLine="true"
-                        android:maxLines="1"/>
-                </LinearLayout>
-                <View android:layout_height="1dip"
-                    android:background="@color/main_line"
-                    android:layout_width="match_parent">
-                </View>
-                <!--手机-->
+                <!--审核-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -433,6 +403,13 @@
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"
                         android:background="@null"/>
+                    <Spinner
+                        android:id="@+id/sp_assessor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="bottom"
+                        />
                 </LinearLayout>
                 <View android:layout_height="1dip"
                     android:background="@color/main_line"

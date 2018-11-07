@@ -41,7 +41,10 @@
         android:gravity="right"
         android:text=" "
         android:textColor="@color/news_detail_title"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:singleLine="true"
+        android:ellipsize = "marquee"
+        android:marqueeRepeatLimit="marquee_forever"/>
     <TextView
         android:id="@+id/time"
         android:layout_width="match_parent"
@@ -55,8 +58,9 @@
         android:text=" "
         android:textColor="@color/news_detail_time"
         android:textSize="16sp"
-        android:maxLines="1"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:ellipsize = "marquee"
+        android:marqueeRepeatLimit="marquee_forever"/>
 
 
 

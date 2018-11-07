@@ -48,13 +48,14 @@ public class ContractTimeLineItemAdapter extends RecyclerView.Adapter<ContractTi
     public void onBindViewHolder(ContractTimeLineViewHolder holder, int position) {
         ContractTimeLineItem timeLineModel = mFeedList.get(position);
 
-        if(timeLineModel.getApproveState() == ContractApproveStatus.INACTIVE) {
+        if(timeLineModel.getApproveState() == ContractApproveStatus.Create) {
             holder.timeLine.setMarker(VectorDrawableUtils.getDrawable(mContext, R.drawable.ic_marker_inactive, android.R.color.darker_gray));
-        } else if(timeLineModel.getApproveState() == ContractApproveStatus.ACTIVE) {
+        } else{
             holder.timeLine.setMarker(VectorDrawableUtils.getDrawable(mContext, R.drawable.ic_marker_active, R.color.colorPrimary));
-        } else {
-            holder.timeLine.setMarker(ContextCompat.getDrawable(mContext, R.drawable.ic_marker), ContextCompat.getColor(mContext, android.R.color.darker_gray));
         }
+//        else (timeLineModel.getApproveState() == ContractApproveStatus.Create)  {
+//            holder.timeLine.setMarker(ContextCompat.getDrawable(mContext, R.drawable.ic_marker), ContextCompat.getColor(mContext, android.R.color.darker_gray));
+//        }
 
 //        holder.timeLine.setStartLine(ContextCompat.getColor(mContext, android.R.color.darker_gray), 0);
 //        holder.timeLine.setEndLine(ContextCompat.getColor(mContext, android.R.color.darker_gray), 0);

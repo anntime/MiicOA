@@ -1,6 +1,7 @@
 package com.example.miic.oa.work.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.miic.R;
+import com.example.miic.carManage.activity.CarManageActivity;
 import com.example.miic.common.MyApplication;
+import com.example.miic.contractManage.activity.ContractIndexActivity;
+import com.example.miic.contractManage.activity.ContractManageActivity;
+import com.example.miic.meetingRoomManage.activity.MeetingRoomManageActivity;
 import com.example.miic.oa.work.item.WorkPageItem;
+import com.example.miic.sealManagement.activity.SealManageActivity;
 
 import java.util.List;
 
@@ -66,27 +72,32 @@ public class WorkPageItemAdapter extends BaseAdapter {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 //获得点击的图标的ID，然后将id传递到下一页，
-                String clickIconID = columnItem.getColumnID();
-                Toast.makeText(MyApplication.getContext(),"待开发中……",Toast.LENGTH_SHORT).show();
-//                Log.i("点击图标的ID",clickIconID);
-//
-//                if(clickIconID=="IM"){
-////                    final String target = "testpro2"; //消息接收者ID
-////                    final String appkey = "23015524"; //消息接收者appKey
-////                    Intent intent = mIMKit.getChattingActivityIntent(target, appkey);
-////                    context.startActivity(intent);
-//                }else if(clickIconID=="address"){
-//                    Intent intent=add Intent(context,AddressListActivity.class);
-//                    context.startActivity(intent);
-//                }else{
-//                    Intent intent=add Intent(context,WorkChildActivity.class);
-//                    intent.putExtra("clickIconID",clickIconID);
-//                    context.startActivity(intent);
-//                }
-
-
+                String clickIconID = columnItem.getColumnGridView().get(position).getColumnIconID();
+                Intent intent;
+                switch (clickIconID){
+                    case "sealManage":
+                        intent=new Intent(context,SealManageActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    case "contractManage":
+                        intent=new Intent(context, ContractIndexActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    case "carManage":
+                        intent=new Intent(context,CarManageActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    case "meetingRoomManage":
+                        intent=new Intent(context,MeetingRoomManageActivity.class);
+                        context.startActivity(intent);
+                        break;
+                    default:
+                        Toast.makeText(context,"该功能尚未开放~",Toast.LENGTH_LONG).show();
+                        break;
+                }
             }
         });
+
         return view;
     }
     class ViewHolder{

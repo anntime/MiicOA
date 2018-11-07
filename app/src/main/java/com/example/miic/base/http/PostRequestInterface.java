@@ -110,7 +110,18 @@ public interface PostRequestInterface {
     @Headers({"Content-Type: application/json","Accept: application/json","url_name:oa"})//需要添加头
     @POST("service/NewsService.asmx/TopNewsSearchByColumn")
     Call<String> GetTopNews(@Body RequestBody keywordView);
-
+    //获取首页消息数量
+    @Headers({"Content-Type: application/json","Accept: application/json","url_name:oa"})//需要添加头
+    @POST("service/MessageInfoService.asmx/GetMessageSearchCount")
+    Call<String> GetMessageSearchCount(@Body RequestBody keywordView);
+    //获取首页消息列表
+    @Headers({"Content-Type: application/json","Accept: application/json","url_name:oa"})//需要添加头
+    @POST("service/MessageInfoService.asmx/MessageSearch")
+    Call<String> MessageSearch(@Body RequestBody keywordView);
+    //读消息操作
+    @Headers({"Content-Type: application/json","Accept: application/json","url_name:oa"})//需要添加头
+    @POST("service/MessageInfoService.asmx/ReadMessage")
+    Call<String> ReadMessage(@Body RequestBody keywordView);
     //获取资讯页面的栏目列表
     @Headers({"Content-Type: application/json","Accept: application/json","url_name:oa"})//需要添加头
     @POST("service/RbacService.asmx/GetMobileMenuInfoList")
@@ -268,10 +279,15 @@ public interface PostRequestInterface {
     @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
     @POST("service/SealService.asmx/GetInformation")
     Call<String> GetSealApply(@Body RequestBody keywordView );
-    //获取审核人员信息
+    //选择工作流
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/ChooseProjKV")
+    Call<String> ChooseProjKV(@Body RequestBody keywordView );
+    //获取下一步审核人员信息
     @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
     @POST("service/WorkflowService.asmx/GetChiefInfo")
     Call<String> GetChiefInfo(@Body RequestBody keywordView );
+
     //提交用印申请
     @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
     @POST("service/SealService.asmx/Submit")
@@ -292,6 +308,235 @@ public interface PostRequestInterface {
     @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
     @POST("service/SealService.asmx/GetDetailInfo")
     Call<String> GetMySealDetailInfo(@Body RequestBody keywordView );
+    //获取用印类型
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/BasicService.asmx/GetSealTypeInfos")
+    Call<String> GetSealTypeInfos( );
+    //获取印章类型
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/BasicService.asmx/GetSealApplicationTypeInfos")
+    Call<String> GetSealApplicationTypeInfos();
+    //获取用印申请部门
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/DeptService.asmx/GetMyDeptInfoList")
+    Call<String> GetMyDeptInfoList(@Body RequestBody keywordView);
+    //获取登陆用户数据
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/UserService.asmx/GetLoginInfo")
+    Call<String> GetLoginInfo(@Body RequestBody keywordView);
+    //获取我的用印审批数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/GetMyApproveSearchCount")
+    Call<String> GetMySealApprovalSearchCount(@Body RequestBody keywordView );
+    //获取我的用印审批
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/MyApproveSearch")
+    Call<String> MySealApprovalSearch(@Body RequestBody keywordView );
+    //用印审批
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/Approve")
+    Call<String> ApproveSeal(@Body RequestBody keywordView);
+    //获取我的监印数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/GetSealPrintSearchCount")
+    Call<String> GetMySealPrintSearchCount(@Body RequestBody keywordView );
+    //获取我的监印列表
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/SealPrintSearch")
+    Call<String> MySealPrintSearch(@Body RequestBody keywordView );
+    //用印监印
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/SetSealPrint")
+    Call<String> PrintSeal(@Body RequestBody keywordView);
+
+    /*********************************
+     * ***********合同管理***********************
+     *****************************************************/
+    //角色权限
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/RbacService.asmx/GetFunInfoListForMobile") 
+    Call<String> GetContractFunInfoList(@Body RequestBody keywordView);
+    //获取合同详情
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetDetailInfo")
+    Call<String> GetDetailInfo(@Body RequestBody keywordView);
+    //获取合同标识
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/BasicService.asmx/GetIdentificationItemInfos")
+    Call<String> GetIdentificationItemInfos();
+    // 获取全部部门
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/DeptService.asmx/GetMiicDeptInfoList")
+    Call<String> GetMiicDeptInfoList();
+    // 获取计划查询全部部门
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetPlanDeptInfoList")
+    Call<String> GetPlanDeptInfoList();
+    /**
+      合同查询列表页面
+     */
+    //获取我可查询的部门列表
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetMyQueryDeptList")
+    Call<String> GetMyQueryDeptList();
+    //获取合同查询
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/QuerySearch")
+    Call<String> QuerySearch(@Body RequestBody keywordView);
+    //获取合同查询数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetQuerySearchCount")
+    Call<String> GetQuerySearchCount(@Body RequestBody keywordView);
+    /**
+     合同管理列表页面
+     */
+    //获取合同管理查询
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ContractSearch")
+    Call<String> ContractSearch(@Body RequestBody keywordView);
+    //获取合同管理查询数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetContractSearchCount")
+    Call<String> GetContractSearchCount(@Body RequestBody keywordView);
+
+    /**
+     我的合同申请列表页面
+     */
+    // 获取合同申请部门===获取用印申请部门
+
+    //获取我的合同申请查询
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/MyApplicationSearch")
+    Call<String> MyApplicationSearch(@Body RequestBody keywordView);
+    //获取我的合同申请查询数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetMyApplicationSearchCount")
+    Call<String> GetMyApplicationSearchCount(@Body RequestBody keywordView);
+    //删除合同申请
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/Remove")
+    Call<String> Remove(@Body RequestBody keywordView);
+    /**
+     我的合同审批列表页面
+     */
+    // 获取合同审批部门
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/SealService.asmx/GetMyApproveDeptList")
+    Call<String> GetMyApproveDeptList();
+    //获取我的合同审批查询
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/MyApproveSearch")
+    Call<String> MyApproveSearch(@Body RequestBody keywordView);
+    //获取我的合同审批查询数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetMyApproveSearchCount")
+    Call<String> GetMyApproveSearchCount(@Body RequestBody keywordView);
+    /**
+     我的合同审批页面
+     */
+    //获取 合同审批详情
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetContractApproveDetailInfo")
+    Call<String> GetContractApproveDetailInfo(@Body RequestBody keywordView);
+    //获取当前审批流程数
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/WorkflowService.asmx/GetCurrentSetpNum")
+    Call<String> GetCurrentSetpNum(@Body RequestBody keywordView);
+    //获取下一步审批人列表
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/WorkflowService.asmx/GetNextApprovalList")
+    Call<String> GetNextApprovalList(@Body RequestBody keywordView);
+    //审批
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ApproveContract")
+    Call<String> ApproveContract(@Body RequestBody keywordView);
+    //判断是否可以撤回
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/CanWithdraw")
+    Call<String> CanWithdraw(@Body RequestBody keywordView);
+    //合同撤回
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/Withdraw")
+    Call<String> Withdraw(@Body RequestBody keywordView);
+
+    /**
+     合同监印列表页面、合同执行列表页面
+     */
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/CommonContractSearch")
+    Call<String> CommonContractSearch(@Body RequestBody keywordView);
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetCommonContractSearchCount")
+    Call<String> GetCommonContractSearchCount(@Body RequestBody keywordView);
+    /**
+     合同计划列表页面
+     */
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ContractPlanSearch")
+    Call<String> ContractPlanSearch(@Body RequestBody keywordView);
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetContractPlanSearchCount")
+    Call<String> GetContractPlanSearchCount(@Body RequestBody keywordView);
+    /**
+     合同监印页面
+     */
+    //监印通过
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ContractPrintApproved")
+    Call<String> ContractPrintApproved(@Body RequestBody keywordView);
+    /**
+     合同执行页面
+     */
+    //获取合同执行详情
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/SearchContractExecute")
+    Call<String> SearchContractExecute(@Body RequestBody keywordView);
+    //提交合同执行
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ContractExecuteSubmit")
+    Call<String> ContractExecuteSubmit(@Body RequestBody keywordView);
+    /**
+     合同计划页面
+     */
+    //获取合同计划详情
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/SearchContractPlan")
+    Call<String> SearchContractPlan(@Body RequestBody keywordView);
+    //提交合同计划
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ContractPlanSubmit")
+    Call<String> ContractPlanSubmit(@Body RequestBody keywordView);
+    //删除合同计划
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ContractPlanDelete")
+    Call<String> ContractPlanDelete(@Body RequestBody keywordView);
+    /**
+     合同完成列表页面
+     */
+    //获取合同完成查询
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/ContractFinishSearch")
+    Call<String> ContractFinishSearch(@Body RequestBody keywordView);
+    //获取合同完成查询数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/GetContractFinishSearchCount")
+    Call<String> GetContractFinishSearchCount(@Body RequestBody keywordView);
+    /**
+     合同完成页面
+     */
+    //设置合同终止
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/SetIllegalFinishContract")
+    Call<String> SetIllegalFinishContract(@Body RequestBody keywordView);
+    //设置合同完成
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/SetFinishContract")
+    Call<String> SetFinishContract(@Body RequestBody keywordView);
+    //恢复合同状态
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/ContractService.asmx/RecoverContractStatus")
+    Call<String> RecoverContractStatus(@Body RequestBody keywordView);
+
 
 
     //获得请假列表
@@ -306,4 +551,81 @@ public interface PostRequestInterface {
     @Headers({"Content-Type: application/json","Accept: application/json","url_name:qj"})//需要添加头
     @POST("service/CodeTypeService.asmx/GetMySubmitStatusList")
     Call<String> GetMySubmitStatusList (@Header("Cookie") String cookie,@Body RequestBody keywordView);
+
+    //用车管理
+    //获取我的用车申请数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/GetMyApplicationSearchCount")
+    Call<String> GetMyCarApplicationSearchCount(@Body RequestBody keywordView );
+    //获取我的用车申请列表
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/MyApplicationSearch")
+    Call<String> MyCarApplicationSearch(@Body RequestBody keywordView );
+    //获取车牌号
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/GetPersonCarNumList")
+    Call<String> GetCarNumInfos(@Body RequestBody keywordView);
+    //提交用车申请
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/GetInformation")
+    Call<String> GetCarApply(@Body RequestBody keywordView);
+    //选择工作流
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/ChooseProjKV")
+    Call<String> CarChooseProjKV(@Body RequestBody keywordView );
+    //提交用车申请
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/SubmitCarInfo")
+    Call<String> SubmitCarApplication(@Body RequestBody keywordView );
+    //获取用车申请的详情
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/GetCarDetailInfoWithApprove")
+    Call<String> GetCarDetailInfo(@Body RequestBody keywordView );
+    //获取我的用车审核数量
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/GetMyApproveSearchCount")
+    Call<String> GetMyCarApprovalSearchCount(@Body RequestBody keywordView );
+    //获取我的用车审核列表
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/MyApproveSearch")
+    Call<String> MyCarApprovalSearch(@Body RequestBody keywordView );
+    //用车审批
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/CarService.asmx/Approve")
+    Call<String> ApproveCar(@Body RequestBody keywordView);
+
+    /***
+     * 会议室管理
+     */
+    //获取会议室列表
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/Meeting/RoomService.asmx/GetRoomList")
+    Call<String> GetRoomList(@Body RequestBody keywordView );//{roomStatus:0}
+    //通过会议室和选择的日期查询已被占用的情况
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/Meeting/MeetingService.asmx/GetMeetingTimeByDate")
+    Call<String> GetMeetingTimeByDate(@Body RequestBody keywordView );//{date:'2018-10-24',roomID:'6d9163c9-fac8-5fb5-16f1-4f81fea9ba7a'}
+    //提交会议室预约
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/Meeting/MeetingService.asmx/Submit")
+    Call<String> SubmitMeetingRoomApply(@Body RequestBody keywordView );
+    //{meetingInfo:{"ID":"b3d804af-222c-b9a6-4ca0-addda6d85abc","RoomID":"6d9163c9-fac8-5fb5-16f1-4f81fea9ba7a",
+    // "RoomName":"5009","MeetingTheme":"123","ReverseBeginTime":"2018-10-22 08:00","ReverseEndTime":"2018-10-22 09:00",
+    // "ReverseDate":"2018-10-22","ReverseTimeLength":3600000,"DeptID":"中心领导","DeptName":"中心领导"}}
+    //获取本月所有的会议预约情况
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/Meeting/MeetingService.asmx/GetMeetingUsedInfosByYearMonth")
+    Call<String> GetMeetingUsedInfosByYearMonth(@Body RequestBody keywordView );//{year:'2018',month:'10'}
+    //根据点击的日期获取各个会议室已经预约的情况
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/Meeting/MeetingService.asmx/GetMeetingStatisticsDetailInfos")
+    Call<String> GetMeetingStatisticsDetailInfos(@Body RequestBody keywordView );//{date:'2018-10-24'}
+    //删除会议室预约
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/Meeting/MeetingService.asmx/Delete")
+    Call<String> DeleteMeetingRoomApply(@Body RequestBody keywordView );//{id:'911c90f6-9e37-8174-16b6-72ee49e0006c'}
+    //缺少一个获取本周的会议室预约情况endDate:''
+    @Headers({"Content-Type: application/json","Accept: application/json"})//需要添加头
+    @POST("service/Meeting/MeetingService.asmx/GetMeetingUsedInfosByDate")
+    Call<String> GetMeetingUsedInfosByDate(@Body RequestBody keywordView );//{beginDate:'2018-10-24',endDate:''}
 }

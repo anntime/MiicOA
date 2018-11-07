@@ -11,11 +11,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.miic.R;
+import com.example.miic.carManage.activity.CarIndexActivity;
 import com.example.miic.carManage.activity.CarManageActivity;
 import com.example.miic.common.MyApplication;
+import com.example.miic.contractManage.activity.ContractIndexActivity;
 import com.example.miic.contractManage.activity.ContractManageActivity;
 import com.example.miic.meetingManage.activity.MeetingManageActivity;
+//import com.example.miic.meetingRoomManage.activity.MeetingRoomManageActivity;
+import com.example.miic.meetingRoomManage.activity.MeetingRoomManageActivity;
 import com.example.miic.oa.work.item.WorkPageGridView;
+import com.example.miic.sealManagement.activity.SealIndexActivity;
 import com.example.miic.sealManagement.activity.SealManageActivity;
 import com.example.miic.qjManage.activity.QjManageActivity;
 import com.example.miic.share.activity.ShareActivity;
@@ -69,25 +74,20 @@ public class WorkPageGridViewAdapter extends BaseAdapter {
             public void onClick(View view) {
                 String clickID = list.get(position).getColumnIconID();
                 if(clickID.equals("sealManage")){
-                    Intent intent=new Intent(context,SealManageActivity.class);
+                    Intent intent=new Intent(context,SealIndexActivity.class);
                     context.startActivity(intent);
-//                    Toast.makeText(MyApplication.getContext(),"待开发中……",Toast.LENGTH_SHORT).show();
                 }else if(clickID.equals("contractManage")){
-                    Intent intent=new Intent(context,ContractManageActivity.class);
+                    Intent intent=new Intent(context,ContractIndexActivity.class);
                     context.startActivity(intent);
-
-//                    Toast.makeText(MyApplication.getContext(),"待开发中……",Toast.LENGTH_SHORT).show();
-                }else if(clickID.equals("meetingManage")){
-                    Intent intent=new Intent(context,MeetingManageActivity.class);
+                }else if(clickID.equals("meetingRoomManage")){
+                    Intent intent=new Intent(context,MeetingRoomManageActivity.class);
                     context.startActivity(intent);
                 } else if(clickID.equals("carManage")){
-                    Intent intent=new Intent(context,CarManageActivity.class);
+                    Intent intent=new Intent(context,CarIndexActivity.class);
                     context.startActivity(intent);
-//                    Toast.makeText(MyApplication.getContext(),"待开发中……",Toast.LENGTH_SHORT).show();
                 } else if(clickID.equals("qjManage")){
                     Intent intent=new Intent(context,QjManageActivity.class);
                     context.startActivity(intent);
-//                    Toast.makeText(MyApplication.getContext(),"待开发中……",Toast.LENGTH_SHORT).show();
                 }else if(clickID.equals("share")){
                     Intent intent=new Intent(context,ShareActivity.class);
                     context.startActivity(intent);

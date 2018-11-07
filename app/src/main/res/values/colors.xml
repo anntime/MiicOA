@@ -32,6 +32,7 @@
     <color name="seal_approve">#f34e56</color>
     <color name="seal_finish">#14d500</color>
     <color name="seal_edit">#4086cd</color>
+    <color name="seal_header">#4086cd</color>
 
     <!--朋友圈评论的背景-->
     <color name="share_background">#DCDCDC</color>
@@ -45,5 +46,17 @@
     <color name="seal_status_illegal_disagree_finish">#FFCC33</color>
     <color name="seal_status_seal_print">#FF33CC</color>
     <color name="seal_status_seal_finish">#63b8ff</color>
+
+    <!--会议室管理-->
+    <color name="line_color">#e7e7e7</color>
+    <color name="content_background">#f2f2f2</color>
+    <color name="solar_background">#009988</color>
+    <color name="room_background_color">#D2F5FA</color>
+    <color name="room_text_color">#00C2DE</color>
+    <color name="room_button_background">#D14A61</color>
+    <color name="room_apply_text_color">#D14A61</color>
+    <color name="room_apply_background_color">#FBEEF0</color>
+    <color name="room_apply_title_color">#999999</color>
+    <color name="room_apply_label_color">#333</color>
 
 </resources>

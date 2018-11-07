@@ -40,7 +40,7 @@ public class MainPagePendingItemAdapter extends BaseAdapter {
                 return position;
         }
         @Override
-        public View getView(int position, View convertView, ViewGroup parent){
+        public View getView(final int position, View convertView, ViewGroup parent){
                 MainPagePendingItem pendingItem = getItem(position);
                 View view;
                 ViewHolder holder;
@@ -52,9 +52,15 @@ public class MainPagePendingItemAdapter extends BaseAdapter {
                         view=convertView;
                         holder= (ViewHolder) view.getTag();
                 }
-                holder.newsTitle.setText(pendingItem.getTitle());
+                holder.newsTitle.setText(pendingItem.getMessageTip());
                 holder.newsPublishTime.setText(pendingItem.getPublishTime());
-                holder.icon.setImageResource(pendingItem.getIconID());
+                holder.icon.setVisibility(View.GONE);
+                view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                onMyClickListener.onMyClick(0, position);
+                        }
+                });
                 return view;
         }
         class ViewHolder{
@@ -67,5 +73,14 @@ public class MainPagePendingItemAdapter extends BaseAdapter {
                         newsPublishTime = (TextView) view.findViewById(R.id.news_publish_time);
                         icon = (ImageView)view.findViewById(R.id.icon);
                 }
+        }
+        public interface onItemMyClickListener {
+                void onMyClick(int type, int listID);
+        }
+
+        private MainPagePendingItemAdapter.onItemMyClickListener onMyClickListener;
+
+        public void setOnItemMyClickListener(MainPagePendingItemAdapter.onItemMyClickListener onMyClickListener) {
+                this.onMyClickListener = onMyClickListener;
         }
 }

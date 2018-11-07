@@ -47,12 +47,10 @@ public class CarTimeLineItemAdapter extends RecyclerView.Adapter<CarTimeLineView
     public void onBindViewHolder(CarTimeLineViewHolder holder, int position) {
         CarTimeLineItem timeLineModel = mFeedList.get(position);
 
-        if(timeLineModel.getApproveState() == CarApproveStatus.INACTIVE) {
+        if(timeLineModel.getApproveState() == CarApproveStatus.Create) {
             holder.timeLine.setMarker(VectorDrawableUtils.getDrawable(mContext, R.drawable.ic_marker_inactive, android.R.color.darker_gray));
-        } else if(timeLineModel.getApproveState() == CarApproveStatus.ACTIVE) {
-            holder.timeLine.setMarker(VectorDrawableUtils.getDrawable(mContext, R.drawable.ic_marker_active, R.color.colorPrimary));
         } else {
-            holder.timeLine.setMarker(ContextCompat.getDrawable(mContext, R.drawable.ic_marker), ContextCompat.getColor(mContext, android.R.color.darker_gray));
+            holder.timeLine.setMarker(VectorDrawableUtils.getDrawable(mContext, R.drawable.ic_marker_active, R.color.colorPrimary));
         }
 
 //        holder.timeLine.setStartLine(ContextCompat.getColor(mContext, android.R.color.darker_gray), 0);

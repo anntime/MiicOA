@@ -13,17 +13,17 @@ import static com.example.miic.oa.common.Setting.stampToDate;
 
 public class CarSearchResultItem {
     private String carApplyID;
-    private String carApplyTitle;
+    private String carTravelWay;
     private String applyTime;
     private String approveState;
 
     public CarSearchResultItem(JSONObject objectTemp ){
         try {
             this.carApplyID = objectTemp.getString("ID");
-            this.carApplyTitle = objectTemp.getString("Title");
+            this.carTravelWay = objectTemp.getString("TravelWay");
             //this.applyTime = stampToDate(objectTemp.getString("ApplyTime"));
-            this.applyTime = objectTemp.getString("ApplyTime");
-            this.approveState = objectTemp.getString("ApproveState");
+            this.applyTime = stampToDate(objectTemp.getString("BeginTime"));
+            this.approveState = objectTemp.getString("Status");
 
         }catch (JSONException ex){
             Log.e("InfoPageNews",ex.getMessage());
@@ -39,12 +39,12 @@ public class CarSearchResultItem {
         this.carApplyID = carApplyID;
     }
 
-    public String getCarApplyTitle() {
-        return carApplyTitle;
+    public String getCarTravelWay() {
+        return carTravelWay;
     }
 
-    public void setCarApplyTitle(String carApplyTitle) {
-        this.carApplyTitle = carApplyTitle;
+    public void setCarTravelWay(String carTravelWay) {
+        this.carTravelWay = carTravelWay;
     }
 
     public String getApplyTime() {

@@ -32,6 +32,8 @@ public class PostRequest{
     private OkHttpClient httpClient = new OkHttpClient.Builder()
             .retryOnConnectionFailure(true)
             .connectTimeout(60000, TimeUnit.MILLISECONDS)
+			 .readTimeout(60000, TimeUnit.MILLISECONDS)
+			 .writeTimeout(60000, TimeUnit.MILLISECONDS)
             //添加应用拦截器
             .addInterceptor(new Interceptor() {
                 @Override

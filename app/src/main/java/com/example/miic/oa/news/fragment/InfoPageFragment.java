@@ -189,6 +189,7 @@ public class InfoPageFragment extends Fragment implements BGABanner.Delegate<Ima
      */
     public void newsSearchByColumn(final int position){
         JSONObject requestJson = new JSONObject();
+
         final String columnID = columnIDs[position];
 
 

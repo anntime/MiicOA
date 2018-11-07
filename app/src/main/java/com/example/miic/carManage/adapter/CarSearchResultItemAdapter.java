@@ -42,7 +42,7 @@ public class CarSearchResultItemAdapter extends BaseAdapter {
         return position;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(final int position, View convertView, ViewGroup parent){
         View view;
         ViewHolder holder;
         if(convertView==null){
@@ -54,11 +54,34 @@ public class CarSearchResultItemAdapter extends BaseAdapter {
             holder= (ViewHolder) view.getTag();
         }
         CarSearchResultItem car = getItem(position);
-        holder.carTitle.setText(car.getCarApplyTitle());
+        holder.carTitle.setText(car.getCarTravelWay());
         holder.carTime.setText(car.getApplyTime());
         holder.carState.setText(car.getApproveState());
         //判断状态，设置审批状态字体的颜色！！！！！！！！！！！！！！！！！！！！！！！！！！
+        holder.carState.setText(getApproveStateStr(car.getApproveState()));
+        holder.carState.setTextColor(getApproveStateColorStr(car.getApproveState()));
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMyClickListener.onMyClick(0, position);
+            }
+        });
         return view;
+    }
+
+    public interface onItemMyClickListener {
+        /**
+         *监听接口：点赞、评论点击事件
+         * @param type:事件类型
+         * @param listID：列表的位置id
+         */
+        void onMyClick(int type, int listID);
+    }
+
+    private onItemMyClickListener onMyClickListener;
+
+    public void setOnItemMyClickListener(onItemMyClickListener onMyClickListener) {
+        this.onMyClickListener = onMyClickListener;
     }
     /**
      * 添加列表项
@@ -76,5 +99,65 @@ public class CarSearchResultItemAdapter extends BaseAdapter {
             carTime = (TextView) view.findViewById(R.id.car_time);
             carState = (TextView) view.findViewById(R.id.car_state);
         }
+    }
+
+    private String getApproveStateStr(String state){
+        String result="";
+        switch (state) {
+            case "0":
+                result = "全部";
+                break;
+            case "1":
+                result = "待提交";
+                break;
+            case "2":
+                result = "审批中";
+                break;
+            case "3":
+                result = "待还车";
+                break;
+            case "7":
+                result = "待核查";
+                break;
+            case "8":
+                result = "已完成";
+                break;
+            default:
+                result = "状态不明";
+                break;
+        }
+        return result;
+    }
+    private int getApproveStateColorStr(String state){
+        int result= 0xff666666;
+        switch (state) {
+            case "0":
+                result = 0xffBA57ED;
+                break;
+            case "1":
+                result = 0xff62B264;
+                break;
+            case "2":
+                result = 0xffFFCC33;
+                break;
+            case "3":
+                result = 0xffFF33CC;
+                break;
+            case "4":
+                result = 0xff63b8ff;
+                break;
+            case "5":
+                result = 0xffFFCC33;
+                break;
+            case "7":
+                result = 0xffFF33CC;
+                break;
+            case "8":
+                result = 0xff63b8ff;
+                break;
+            default:
+                break;
+        }
+        return result;
     }
 }

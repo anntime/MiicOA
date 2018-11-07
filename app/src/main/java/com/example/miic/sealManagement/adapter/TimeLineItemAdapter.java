@@ -76,8 +76,8 @@ public class TimeLineItemAdapter extends RecyclerView.Adapter<TimeLineViewHolder
         else
             holder.sealTime.setVisibility(View.GONE);
 
-//        holder.sealState.setText(timeLineModel.getApproveState().getName());
-        holder.sealState.setText(timeLineModel.getRemark());
+        holder.sealState.setText(timeLineModel.getApproveState().getName());
+        //holder.sealState.setText(timeLineModel.getRemark());
         holder.sealOperator.setText(timeLineModel.getApproveName());
     }
 

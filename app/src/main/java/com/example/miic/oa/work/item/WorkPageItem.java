@@ -15,6 +15,7 @@ public class WorkPageItem {
         this.columnTitle=columnTitle;
         this.columnList=columnList;
         this.columnID = columnID;
+
     }
 
     public String getColumnTitle() {

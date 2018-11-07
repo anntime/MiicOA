@@ -700,6 +700,4 @@ public class NewsDetailActivity extends AppCompatActivity {
     public void onBackPressed() {
         this.finish();
     }
-
-
 }

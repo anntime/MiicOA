@@ -40,7 +40,7 @@
                 android:gravity="center"
                 android:textSize="16sp"
                 android:textColor="@color/news_detail_title"
-                android:text="@string/add_seal_apply"
+                android:text="用印申请"
                 android:textStyle="normal"
                 android:paddingRight="50dp"/>
         </LinearLayout>
@@ -146,6 +146,13 @@
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"
                         android:background="@null"/>
+                    <Spinner
+                        android:id="@+id/dept_name_sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="bottom"
+                        android:visibility="gone"/>
                 </LinearLayout>
                 <View android:layout_height="1dip"
                     android:background="@color/main_line"
@@ -432,6 +439,13 @@
                         android:textColor="@color/news_detail_time"
                         android:textSize="16sp"
                         android:background="@null"/>
+                    <Spinner
+                        android:id="@+id/sp_assessor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="bottom"
+                        />
                 </LinearLayout>
                 <View android:layout_height="1dip"
                     android:background="@color/main_line"

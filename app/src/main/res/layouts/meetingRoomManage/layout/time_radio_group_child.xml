@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/room_time_radio_group_bg"
+    android:button="@null"
+    android:maxLines="1"
+    android:padding="5dip"
+    android:gravity="center"
+    android:textColor="@color/room_apply_label_color"
+    android:maxEms="10"
+    android:ellipsize="end"
+    >
+
+</CheckBox>

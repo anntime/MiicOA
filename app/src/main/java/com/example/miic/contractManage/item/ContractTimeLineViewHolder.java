@@ -28,6 +28,9 @@ public class ContractTimeLineViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         ButterKnife.bind(this, itemView);
         timeLine.initLine(viewType);
+//        contractState.setSelected(true);
+//        contractTime.setSelected(true);
+
     }
 
 }

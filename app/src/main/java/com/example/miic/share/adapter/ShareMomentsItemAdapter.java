@@ -91,7 +91,7 @@ public class ShareMomentsItemAdapter extends BaseAdapter {
         View view;
         final ViewHolder holder;
         if (convertView == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.moments_item, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.moments_item,parent, false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
@@ -206,6 +206,7 @@ public class ShareMomentsItemAdapter extends BaseAdapter {
             setListViewHeightBasedOnChildren(holder.commentListView);
             momentsEntity.getShareMomentsCommentItemAdapter().notifyDataSetChanged();
         }
+
 
         return view;
     }

@@ -411,7 +411,17 @@ public class Setting {
     public static String stampToTime(String s){
         s = s.substring(6,s.length()-2);
         final Date date = new Date(Long.parseLong(s));
-        final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return  format.format(date);
+    }
+    public static String stampToTimes(String s){
+        s = s.substring(6,s.length()-2);
+        final Date date = new Date(Long.parseLong(s));
+        final SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        return  format.format(date);
+    }
+    public static String strToDate(String s){
+        s = s.split(" ")[0];
+        return  s;
     }
 }

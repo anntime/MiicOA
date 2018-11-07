@@ -4,11 +4,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.miic.oa.search.activity.SearchActivity"
     android:background="@color/activitycolor">
-
     <!--顶部-->
     <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -36,13 +35,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:paddingLeft="50dp">
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/car"/>
+                android:paddingRight="10dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,34 +43,22 @@
                     android:layout_marginBottom="9dp"
                     android:textSize="16sp"
                     android:textColor="@color/news_detail_title"
-                    android:text="@string/car_manage"
+                    android:text="我的用车"
                     android:textStyle="normal" />
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/add_car_approve"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:id="@+id/car_search"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:gravity="center">
                 <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/find"
                     android:layout_gravity="center"
-                    android:src="@drawable/pencil_on"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="9dp"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:textColor="@color/colorAccent"
-                    android:text="@string/add_car_apply"
-                    android:textStyle="normal"
                     />
             </LinearLayout>
-
         </LinearLayout>
 
         <View android:layout_height="1dp"
@@ -85,380 +66,72 @@
             android:layout_width="fill_parent">
         </View>
     </LinearLayout>
-    <!--搜索区-->
+    <!--搜索区
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
+        android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="36dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             >
-            <LinearLayout
-                android:id="@+id/more_condition"
-                android:orientation="vertical"
+            android:id="@+id/add_car_approve"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/seal_application"/>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:text="更多条件"
-                        android:textSize="16sp"
-                        android:textColor="@color/news_detail_title"/>
-                    <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/down"/>
-                </LinearLayout>
-                <View android:layout_height="1dp"
-                    android:background="@color/linecolor"
-                    android:layout_width="match_parent" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <LinearLayout
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <EditText
-                        android:id="@+id/search_keyword"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="请输入查询关键字"
-                        android:textSize="16sp"
-                        android:layout_gravity="bottom"
-                        android:background="@null"
-                        android:imeOptions="actionSearch"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
-                    <LinearLayout
-                        android:id="@+id/find_car_manage"
-                        android:layout_width="40dp"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_width="14dp"
-                            android:layout_height="14dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/find"/>
-                    </LinearLayout>
+                android:padding="5dp"
+                android:text="用车申请"
+                android:textSize="12sp"
+                android:textColor="@color/seal_header"/>
 
-                </LinearLayout>
-                <View android:layout_height="1dp"
-                    android:background="@color/linecolor"
-                    android:layout_width="match_parent" />
-            </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/more_condition_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/car_approval"
             android:orientation="vertical"
-            android:visibility="gone">
-            <LinearLayout
-                android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/seal_approve"/>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:text="用印类型"
-                            android:textSize="16sp"
-                            android:textColor="@color/news_detail_title"
-                            android:layout_marginRight="35dp"/>
+                android:padding="5dp"
+                android:text="用车审核"
+                android:textSize="12sp"
+                android:textColor="@color/seal_header"/>
 
-                    </LinearLayout>
-                    <View android:layout_height="1dp"
-                        android:background="@color/linecolor"
-                        android:layout_width="match_parent" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <RadioGroup
-                            android:id="@+id/car_type"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:fadingEdge="none"
-                            android:gravity="left"
-                            android:orientation="horizontal">
-                            <RadioButton
-                                android:id="@+id/all_car_type"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="全部"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null" />
-                            <RadioButton
-                                android:id="@+id/now_car_type"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="即时用印"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                            <RadioButton
-                                android:id="@+id/out_car_type"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="携印外出"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                        </RadioGroup>
-                    </LinearLayout>
-                    <View android:layout_height="1dp"
-                        android:background="@color/linecolor"
-                        android:layout_width="match_parent" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:text="审批状态"
-                            android:textSize="16sp"
-                            android:textColor="@color/news_detail_title"
-                            android:layout_marginRight="35dp"/>
-
-                    </LinearLayout>
-                    <View android:layout_height="1dp"
-                        android:background="@color/linecolor"
-                        android:layout_width="match_parent" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <RadioGroup
-                            android:id="@+id/apply_state"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:fadingEdge="none"
-                            android:gravity="left"
-                            android:orientation="horizontal">
-                            <RadioButton
-                                android:id="@+id/all_apply_state"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="全部"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                            <RadioButton
-                                android:id="@+id/edit_apply_state"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="编辑中"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                            <RadioButton
-                                android:id="@+id/applying_state"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="审批中"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                            <RadioButton
-                                android:id="@+id/finish_apply_state"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="已完成"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                        </RadioGroup>
-                    </LinearLayout>
-                    <View android:layout_height="1dp"
-                        android:background="@color/linecolor"
-                        android:layout_width="match_parent" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="10dp"
-                            android:text="选择年份"
-                            android:textSize="16sp"
-                            android:textColor="@color/news_detail_title"
-                            android:layout_marginRight="35dp"/>
-
-                    </LinearLayout>
-                    <View android:layout_height="1dp"
-                        android:background="@color/linecolor"
-                        android:layout_width="match_parent" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <RadioGroup
-                            android:id="@+id/search_year"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:fadingEdge="none"
-                            android:gravity="left"
-                            android:orientation="horizontal">
-                            <RadioButton
-                                android:id="@+id/all_year"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text="全部"
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                            <RadioButton
-                                android:id="@+id/previous_year"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text=" "
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                            <RadioButton
-                                android:id="@+id/last_year"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text=" "
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                            <RadioButton
-                                android:id="@+id/current_year"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:gravity="center"
-                                android:text=" "
-                                android:textSize="16sp"
-                                android:textColor="@drawable/color_radiobutton"
-                                android:button="@null"/>
-                        </RadioGroup>
-                    </LinearLayout>
-                    <View android:layout_height="1dp"
-                        android:background="@color/linecolor"
-                        android:layout_width="match_parent" />
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
+    <View android:layout_height="5dp"
+        android:background="@color/main_line"
+        android:layout_width="fill_parent">
+    </View>
+    -->
     <!--结果展示区-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/refreshview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <com.example.miic.base.loadmore.LoadMoreListView
                 android:id="@+id/car_result_container"
@@ -468,6 +141,24 @@
                 android:layout_marginLeft="20dp"
                 android:divider="#00000000" />
         </android.support.v4.widget.SwipeRefreshLayout>
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/notfound"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center_horizontal"
+            />
+        <TextView
+            android:id="@+id/message_tip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="暂没有用车申请"
+            android:textColor="#8c8c8c"
+            android:textSize="16sp"
+            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>

@@ -12,54 +12,59 @@ import static com.example.miic.oa.common.Setting.stampToDate;
  */
 
 public class ContractSearchResultItem {
-    private String sealApplyID;
-    private String sealApplyTitle;
-    private String applyTime;
-    private String approveState;
+    private String contractID;
+    private String contractTitle;
+    private String contractTime;
+    private String contractStatus;
 
     public ContractSearchResultItem(JSONObject objectTemp ){
         try {
-            this.sealApplyID = objectTemp.getString("ID");
-            this.sealApplyTitle = objectTemp.getString("Title");
+            this.contractID = objectTemp.getString("ID");
+            this.contractTitle = objectTemp.getString("ContractName");
             //this.applyTime = stampToDate(objectTemp.getString("ApplyTime"));
-            this.applyTime = objectTemp.getString("ApplyTime");
-            this.approveState = objectTemp.getString("ApproveState");
+            if(objectTemp.getString("SignatoryTime").contains("Date")){
+                this.contractTime = stampToDate(objectTemp.getString("SignatoryTime"));
+            }else{
+                this.contractTime = objectTemp.getString("SignatoryTime").split(" ")[0];
+            }
+
+            this.contractStatus = objectTemp.getString("Status");
 
         }catch (JSONException ex){
-            Log.e("InfoPageNews",ex.getMessage());
+            Log.e("ContractSearch",ex.getMessage());
         }
 
     }
 
-    public String getContractApplyID() {
-        return sealApplyID;
+    public String getContractID() {
+        return contractID;
     }
 
-    public void setContractApplyID(String sealApplyID) {
-        this.sealApplyID = sealApplyID;
+    public void setContractID(String contractID) {
+        this.contractID = contractID;
     }
 
-    public String getContractApplyTitle() {
-        return sealApplyTitle;
+    public String getContractTitle() {
+        return contractTitle;
     }
 
-    public void setContractApplyTitle(String sealApplyTitle) {
-        this.sealApplyTitle = sealApplyTitle;
+    public void setContractTitle(String contractTitle) {
+        this.contractTitle = contractTitle;
     }
 
-    public String getApplyTime() {
-        return applyTime;
+    public String getContractTime() {
+        return contractTime;
     }
 
-    public void setApplyTime(String applyTime) {
-        this.applyTime = applyTime;
+    public void setApplyTime(String contractTime) {
+        this.contractTime = contractTime;
     }
 
-    public String getApproveState() {
-        return approveState;
+    public String getContractStatus() {
+        return contractStatus;
     }
 
-    public void setApproveState(String approveState) {
-        this.approveState = approveState;
+    public void setContractStatus(String contractStatus) {
+        this.contractStatus = contractStatus;
     }
 }
